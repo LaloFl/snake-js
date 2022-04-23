@@ -141,6 +141,7 @@ const startGame = () => {
     { x: 1, y: 2 },
     { x: 1, y: 1 },
   ];
+  
   usedTiles = snake;
 
   generateApple();
