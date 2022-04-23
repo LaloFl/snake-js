@@ -59,7 +59,43 @@ canvas.addEventListener("keydown", (e) => {
 });
 
 const moveSnake = () => {
-  let newPos = {};
+  let newPos = { x: snake[0].x, y: snake[0].y };
+  switch (direction) {
+    case "up":
+      newPos.y--;
+      if (newPos.y < 0) {
+        newPos.y = nTiles - 1;
+      }
+      break;
+    case "down":
+      newPos.y++;
+      if (newPos.y > nTiles - 1) {
+        newPos.y = 0;
+      }
+      break;
+    case "left":
+      newPos.x--;
+      if (newPos.x < 0) {
+        newPos.x = nTiles - 1;
+      }
+      break;
+    case "right":
+      newPos.x++;
+      if (newPos.x > nTiles - 1) {
+        newPos.x = 0;
+      }
+      break;
+  }
+  if (tileIsUsed(newPos.x, newPos.y)) {
+    alert("Game Over");
+    return;
+  }
+  snake.unshift(newPos);
+  if (newPos.x === applePos.x && newPos.y === applePos.y) {
+    eatApple();
+  }
+  snake.pop();
+  drawSnake();
 };
 
 const startGame = () => {
