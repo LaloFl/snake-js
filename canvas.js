@@ -58,6 +58,10 @@ canvas.addEventListener("keydown", (e) => {
   console.log(e.key);
 });
 
+const moveSnake = () => {
+  let newPos = {};
+};
+
 const startGame = () => {
   snake = [
     { x: 1, y: 1 },
@@ -67,12 +71,5 @@ const startGame = () => {
   generateApple();
   drawSnake();
 };
-
-const moveSnake = () => {
-    
-    let newPos = {
-
-    }
-}
 
 startGame();
